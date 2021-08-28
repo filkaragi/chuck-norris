@@ -1,0 +1,15 @@
+<section class="category-section">
+    <h2>Choose your category</h2>
+    <mat-form-field>
+        <mat-label>Chuck Norris category</mat-label>
+        <mat-select [(ngModel)]="selectedCategory">
+            <mat-option
+                *ngFor="let category of categories"
+                [value]="category">
+                {{ category | titlecase }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <button [disabled]="loading || selectedCategory === ''" (click)="getJoke()" class="btn-primary category-btn"> Get joke </button>
+</section>
+<app-joke-list [jokesList]="jokes"></app-joke-list>

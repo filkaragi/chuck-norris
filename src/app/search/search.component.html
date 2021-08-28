@@ -1,0 +1,14 @@
+<section class="category-section">
+    <h2>Search</h2>
+    <form>
+        <mat-form-field>
+            <mat-label>Search for</mat-label>
+            <input matInput placeholder="Search..." name="search" [ngModel]="searchWord" (ngModelChange)="valueChange($event)">
+        </mat-form-field>
+    </form>
+</section>
+<app-joke-list
+    *ngIf="jokes.length > 0"
+    [jokesList]="jokes">
+
+</app-joke-list>

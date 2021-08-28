@@ -1,0 +1,7 @@
+<section class="jokes-section">
+    <div class="jokes">
+        <h1>Homepage</h1>
+        <button class="btn-primary" [disabled]="loading === true" (click)="getJoke()"> Load more jokes</button>
+        <app-joke-list [jokesList]="jokes"></app-joke-list>
+    </div>
+</section>
