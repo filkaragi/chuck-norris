@@ -2,6 +2,9 @@
     <div class="jokes">
         <h1>Homepage</h1>
         <button class="btn-primary" [disabled]="loading === true" (click)="getJoke()"> Load more jokes</button>
-        <app-joke-list [jokesList]="jokes"></app-joke-list>
+        <app-joke-list
+            [jokesList]="jokes"
+            (removeJokeEvent)="jokes = jokeService.removeJokeFromArray($event, jokes)">
+        </app-joke-list>
     </div>
 </section>

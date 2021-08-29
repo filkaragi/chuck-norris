@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Joke} from "../interfaces/joke";
+import {Joke} from "../../interfaces/joke";
 import { Subject } from "rxjs";
 import { debounceTime } from "rxjs/operators";
-import { ChuckNorrisService } from '../ChuckNorris.service';
+import { JokeService } from '../../services/Joke.service';
+import { ChuckNorrisService } from '../../services/ChuckNorris.service';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -13,8 +14,8 @@ export class SearchComponent implements OnInit {
     searchWord: string = '';
     modelChanged = new Subject<string>();
     jokes: Array<Joke> = [];
-    constructor(private chuckNorrisService: ChuckNorrisService) {
-        this.modelChanged.pipe(debounceTime(3000)).subscribe(() => {
+    constructor(private chuckNorrisService: ChuckNorrisService, public jokeService: JokeService) {
+        this.modelChanged.pipe(debounceTime(2000)).subscribe(() => {
             this.chuckNorrisService.searchForJokes(this.searchWord)
                 .subscribe((jokes) => {
                     this.jokes = jokes.result.slice(0,10);

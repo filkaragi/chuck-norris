@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ChuckNorrisService } from '../ChuckNorris.service';
-import { Joke } from '../interfaces/joke';
+import { ChuckNorrisService } from '../../services/ChuckNorris.service';
+import { JokeService } from '../../services/Joke.service';
+import { Joke } from '../../interfaces/joke';
 
 @Component({
   selector: 'app-categories',
@@ -13,7 +14,7 @@ export class CategoriesComponent implements OnInit {
     loading: boolean = false
     categories: Array<string> = [];
     jokes: Array<Joke> = [];
-    constructor(private chuckNorrisService: ChuckNorrisService) {}
+    constructor(private chuckNorrisService: ChuckNorrisService, public jokeService: JokeService) {}
     ngOnInit(){
         this.getCategories();
     }

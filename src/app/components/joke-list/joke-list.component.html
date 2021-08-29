@@ -4,6 +4,8 @@
         <ul>
             <li *ngFor="let joke of jokesList">
                 {{ joke.value }}
+                <button class="btn-secondary" (click)="removeJoke(joke.id)"> Remove </button>
+                <button class="btn-favorites" [disabled]="inFavorites(joke.id)" (click)="addToFavorites(joke)"> Favorite </button>
             </li>
         </ul>
     </div>
