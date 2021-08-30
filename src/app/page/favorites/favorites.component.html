@@ -1,0 +1,18 @@
+<section class="jokes-section">
+    <div class="jokes">
+        <section class="jokes-section">
+            <div class="jokes">
+                <h1>Favorites</h1>
+                <ul>
+                    <li *ngFor="let joke of favoritesList">
+                        {{ joke.value }}
+                        <div>
+                            <button class="btn-secondary" (click)="removeFavorite(joke.id)"> Remove from favorites </button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</section>

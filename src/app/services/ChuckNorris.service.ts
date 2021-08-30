@@ -8,9 +8,6 @@ export class ChuckNorrisService {
 
     private chuckNorrisUrl = 'https://api.chucknorris.io/'
 
-    httpOptions = {
-        headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };
     constructor(
         private http: HttpClient) { }
 

@@ -15,8 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { JokeListComponent } from './components/joke-list/joke-list.component';
 import { SearchComponent } from './page/search/search.component';
 import {MatInputModule} from "@angular/material/input";
-import { StoreModule } from '@ngrx/store';
-import { favoritesReducer } from './store/favorites.reducer';
+import { FavoritesComponent } from './page/favorites/favorites.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +26,7 @@ import { favoritesReducer } from './store/favorites.reducer';
     PageNotFoundComponent,
     JokeListComponent,
     SearchComponent,
+    FavoritesComponent,
   ],
     imports: [
         BrowserModule,
@@ -37,7 +37,6 @@ import { favoritesReducer } from './store/favorites.reducer';
         FormsModule,
         HttpClientModule,
         MatInputModule,
-        StoreModule.forRoot({ favorites: favoritesReducer })
     ],
   providers: [],
   bootstrap: [AppComponent]

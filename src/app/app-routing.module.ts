@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { CategoriesComponent } from './page/categories/categories.component'
 import { HomepageComponent } from './page/homepage/homepage.component';
 import { PageNotFoundComponent } from './page/page-not-found/page-not-found.component';
-import {SearchComponent} from './page/search/search.component';
+import { FavoritesComponent } from './page/favorites/favorites.component';
+import { SearchComponent } from './page/search/search.component';
 
 const routes: Routes = [
     {
@@ -17,6 +18,10 @@ const routes: Routes = [
     {
         path: 'search',
         component: SearchComponent
+    },
+    {
+        path: 'favorites',
+        component: FavoritesComponent
     },
     {
         path: '**',

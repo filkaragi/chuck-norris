@@ -1,8 +1,7 @@
 import { Component, OnInit, Input, Output,  EventEmitter } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { Joke } from '../../interfaces/joke';
-import { Observable } from 'rxjs';
-import {addToFavorites, removeFromFavorites} from "../../store/favotites.actions";
+import { FavoritesService } from '../../services/Favorites.service';
+
 @Component({
   selector: 'app-joke-list',
   templateUrl: './joke-list.component.html',
@@ -10,11 +9,8 @@ import {addToFavorites, removeFromFavorites} from "../../store/favotites.actions
 })
 export class JokeListComponent implements OnInit {
 
-    favorites$: Observable<Array<Joke>>
-    constructor(private store: Store<{ jokes: Array<Joke> }>) {
-        this.favorites$ = store.select('jokes');
-    }
-    @Input() jokesList: Array<Joke> = []
+    constructor(public favoritesService: FavoritesService) {}
+    @Input() jokesList: Array<Joke> | null = []
 
     @Output() removeJokeEvent = new EventEmitter<string>();
 
@@ -25,13 +21,15 @@ export class JokeListComponent implements OnInit {
         this.removeJokeEvent.emit(value);
     }
 
-    inFavorites(id: string):boolean {
-       console.log(this.store);
-       return true;
+    inFavorites(jokeId: string):boolean {
+        return this.favoritesService.isInFavorites(jokeId)
     }
 
     addToFavorites (joke: Joke) {
-        this.store.dispatch(addToFavorites({joke: joke}));
-        // this.store.dispatch(removeFromFavorites({joke: joke}));
+        this.favoritesService.addToFavorites(joke);
+    }
+
+    removeFavorite (jokeId: string) {
+        this.favoritesService.removeFromFavorites(jokeId);
     }
 }

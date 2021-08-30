@@ -13,5 +13,5 @@ export interface Search {
 }
 
 export interface JokeState {
-    jokes : Array<Joke>
+    jokes: Joke[];
 }
