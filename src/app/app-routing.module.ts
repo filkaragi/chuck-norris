@@ -10,6 +10,7 @@ const routes: Routes = [
     {
         path: '',
         component: HomepageComponent
+        //loadChildren: () => import('./page/homepage/homepage.module').then(m => m.HomepageModule)
     },
     {
         path: 'categories',

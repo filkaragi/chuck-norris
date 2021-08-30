@@ -5,7 +5,8 @@ export class FavoritesService {
 
     public favorites = Array();
 
-    addToFavorites(joke: Joke) {
+    addToFavorites(joke: Joke, timestamp: number) {
+        joke.favoritesTimestamp = timestamp;
         this.favorites.push(joke);
     }
 

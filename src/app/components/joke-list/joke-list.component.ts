@@ -26,7 +26,7 @@ export class JokeListComponent implements OnInit {
     }
 
     addToFavorites (joke: Joke) {
-        this.favoritesService.addToFavorites(joke);
+        this.favoritesService.addToFavorites(joke, Date.now());
     }
 
     removeFavorite (jokeId: string) {

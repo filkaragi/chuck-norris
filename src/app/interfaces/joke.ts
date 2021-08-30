@@ -6,6 +6,7 @@ export interface Joke {
     categories: Array<string>
     created_at: string,
     updated_at: string
+    favoritesTimestamp: number
 }
 export interface Search {
     total: number,
