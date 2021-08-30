@@ -8,7 +8,9 @@ import { JokeService } from '../../services/Joke.service';
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
-    constructor(private chuckNorrisService: ChuckNorrisService, public jokeService: JokeService) { }
+    constructor(
+        private chuckNorrisService: ChuckNorrisService,
+        public jokeService: JokeService) { }
     jokes: Array<Joke> = [];
     loading: boolean = false;
     ngOnInit(): void {

@@ -5,9 +5,15 @@
                 <h1>Favorites</h1>
                 <ul>
                     <li *ngFor="let joke of favoritesList">
-                        {{ joke.value }} <span class="date">| {{ joke.favoritesTimestamp | date }}</span>
+                        {{ joke.value }}
+                        <span class="date">
+                            | {{ joke.favoritesTimestamp | date }}
+                        </span>
                         <div>
-                            <button class="btn-secondary" (click)="removeFavorite(joke.id)"> Remove from favorites </button>
+                            <button class="btn-secondary"
+                                    (click)="removeFavorite(joke.id)">
+                                Remove from favorites
+                            </button>
                         </div>
                     </li>
                 </ul>

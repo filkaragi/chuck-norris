@@ -12,7 +12,3 @@ export interface Search {
     total: number,
     result : Array<Joke>
 }
-
-export interface JokeState {
-    jokes: Joke[];
-}

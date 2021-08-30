@@ -3,7 +3,10 @@
     <form>
         <mat-form-field>
             <mat-label>Search for</mat-label>
-            <input matInput placeholder="Search..." name="search" [ngModel]="searchWord" (ngModelChange)="valueChange($event)">
+            <input matInput
+                   placeholder="Search..."
+                   name="search"
+                   [ngModel]="searchWord" (ngModelChange)="valueChange($event)">
         </mat-form-field>
     </form>
 </section>

@@ -1,5 +1,5 @@
 import { Joke } from '../interfaces/joke';
-import {Injectable} from "@angular/core";
+import { Injectable } from "@angular/core";
 @Injectable({ providedIn: 'root' })
 export class FavoritesService {
 

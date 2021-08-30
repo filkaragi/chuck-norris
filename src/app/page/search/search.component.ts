@@ -14,7 +14,9 @@ export class SearchComponent implements OnInit {
     searchWord: string = '';
     modelChanged = new Subject<string>();
     jokes: Array<Joke> = [];
-    constructor(private chuckNorrisService: ChuckNorrisService, public jokeService: JokeService) {
+    constructor(
+        private chuckNorrisService: ChuckNorrisService,
+        public jokeService: JokeService) {
         this.modelChanged.pipe(debounceTime(2000)).subscribe(() => {
             this.chuckNorrisService.searchForJokes(this.searchWord)
                 .subscribe((jokes) => {
@@ -22,10 +24,8 @@ export class SearchComponent implements OnInit {
                 });
         });
     }
-    changed() {
-        this.modelChanged.next();
-    }
     ngOnInit(): void { }
+
     valueChange(value:string){
         this.searchWord = value;
         this.modelChanged.next();

@@ -11,7 +11,6 @@ export class ChuckNorrisService {
     constructor(
         private http: HttpClient) { }
 
-    /** GET jokes from the server */
     getRandomJoke(): Observable<Joke> {
         return this.http.get<Joke>(this.chuckNorrisUrl + 'jokes/random')
             .pipe(
@@ -46,8 +45,7 @@ export class ChuckNorrisService {
     private handleError<T>(operation = 'operation', result?: T) {
         return (error: any): Observable<T> => {
 
-            // TODO: send the error to remote logging infrastructure
-            console.error(error); // log to console instead
+            console.error(error);
 
             // TODO: better job of transforming error for user consumption
             this.log(`${operation} failed: ${error.message}`);

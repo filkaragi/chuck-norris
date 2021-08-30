@@ -14,7 +14,9 @@ export class CategoriesComponent implements OnInit {
     loading: boolean = false
     categories: Array<string> = [];
     jokes: Array<Joke> = [];
-    constructor(private chuckNorrisService: ChuckNorrisService, public jokeService: JokeService) {}
+    constructor(
+        private chuckNorrisService: ChuckNorrisService,
+        public jokeService: JokeService) {}
     ngOnInit(){
         this.getCategories();
     }
